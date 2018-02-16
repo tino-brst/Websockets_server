@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Websockets Server </title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<div id="app">
+		<h1> Messages </h1>
+		<form @submit.prevent="send">
+			<input 
+				type="text" 
+				name="newMessage" 
+				placeholder="new message" 
+				v-model="newMessage">
+			<input 
+				type="submit" 
+				name="send" 
+				value="send">
+		</form>
+		<p v-for="message in messages" :class="{mine: message.isMine}"> 
+			{{ message.content }}
+		</p>
+	</div>
+	<script src="client.js"></script>
+</body>
+</html>
