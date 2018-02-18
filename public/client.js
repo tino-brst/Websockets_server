@@ -13,7 +13,13 @@ var app = new Vue({
 				content: data.message,
 				isMine: false
 			});
-		})	
+		});
+
+		this.socket.emit('register', {
+			screenId: 123,
+			room: 'screens'
+		})
+
 	},
 	methods: {
 		send() {
