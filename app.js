@@ -80,6 +80,11 @@ io.on('connection', (socket) => {
 		}
 	})
 
+	// Anuncio cambio en playlist
+	socket.on('playlistUpdated', (playlistId) => {
+		io.emit('playlistUpdated', playlistId);
+	})
+
 	// En desconeccion, elimino a la pantalla de las listas en las que se haya agregado
 	socket.on('disconnect', () => {
 		console.log('- id: ' + socket.id);
